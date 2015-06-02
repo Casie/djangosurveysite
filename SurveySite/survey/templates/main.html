@@ -35,13 +35,14 @@
 					<div class = "modal-header">
 						<h4>Enter a survey ID</h4>
 					</div>
-					<form method = "post" class = "formcss" action = {% url 'load-survey' %}>
+					<form method = "post" class = "formcss" action = {% url 'load_survey' %}>
 						{% csrf_token %}
 					<input type = "text" class = "form-control" name = "survey_view">
 					<br>
 					<input type = "submit" class =
 					 "btn btn-success" value = "Go!">	
 					 </form>
+					</div> 
 				</div>
 			</div>	
 

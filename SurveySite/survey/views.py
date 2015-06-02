@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from models import Survey, SurveyAnswer, Question, Choice
 from django.contrib.auth import authenticate, login 
 
