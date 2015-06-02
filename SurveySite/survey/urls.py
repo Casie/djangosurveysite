@@ -3,6 +3,7 @@ import views
 urlpatterns = patterns('',
 	url(r'^$', views.index, name= "root"),		
 	url(r'^survey_load/$', views.load_survey, name= "load_survey"), 
+	url(r'^survey_fill/$', views.survey_fill, name= "survey-fill"), 
 	url(r'^survey/(?P<survey_id>\d+)/$', views.survey_view, name = "survey-detail"),
 	url(r'^admin_login/$', views.admin_login, name = "admin-login"),
 	url(r'^admin_panel/$', views.admin_panel, name = "admin-panel"),

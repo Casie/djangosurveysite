@@ -46,11 +46,11 @@
 			</div>
 			<br>
 			<form method = "post" class = "centerform" action = {% url 'admin-choice-add' %}>
-			{% csrf token %}
+			{% csrf_token %}
 			<b>Choice Text</b>
 			<input type = "text" class = "form-control" name = "choice_text">
 			<br>
-			<input type = "submit" class = "btn btn-primary" value = "Add questions">
+			<input type = "submit" class = "btn btn-primary" value = "Add choices">
 			<p>
 			<a href = {% url 'admin-panel' %} class = "btn btn-success">Finish</a>
 			<a href = {% url 'admin-question-add-view' %} class = "btn btn-primary">New Question</a>

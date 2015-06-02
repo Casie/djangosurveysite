@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from models import Survey, SurveyAnswer, Question, Choice
+from models import *
 from django.contrib.auth import authenticate, login 
 
 # Create your views here.
@@ -27,9 +27,11 @@ def survey_fill(request):
 	answer.save()
 	questions = orig_survey.question_set.all()
 	for question in questions:
-		question_post = request.POST['question'+str(question.id)]
+		question_post = request.POST.get('question'+str(question.id))
+		if not question_post:
+			continue
 		QA = QuestionAnswer()
-		QA.answer.answer = Choice.object.get(id=int(question_post))
+		QA.answer = Choice.objects.get(id=int(question_post))
 		QA.survey_answer = answer
 		QA.save()
 	answer.save()
@@ -68,7 +70,7 @@ def question_add_view(request):
 	return render(request, 'question-add.html',{})
 
 def choice_add_view(request):
-	question = Question.object.get(id=int(request.session['current_question']))	
+	question = Question.objects.get(id=int(request.session['current_question']))	
 	return render(request, 'choice-add.html', {'question':question})
 
 def survey_create(request):
